@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome To GifHunt</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <h2 class="navbar-text">GifHunt</h2>
+            <form action="/" method="POST">
+                <div class="navbar-search">
+                    <input type="search" class="navbar-search-input" name="search" placeholder="Search for a gif">
+                    <button class="navbar-search-button" type="submit">SEARCH</button>
+                </div>
+            </form>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            {% for gif in data %}
+            <div class="col">
+                <img src="{{gif['images']['original']['url']}}">
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+
+</html>
